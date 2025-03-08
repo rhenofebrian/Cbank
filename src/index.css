@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;800&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply w-full min-h-screen bg-white dark:bg-neutral-900;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+@keyframes neon-glow {
+  0% {
+    text-shadow: 0 0 5px rgba(0, 102, 255, 0.8), 0 0 10px rgba(0, 102, 255, 0.6);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(0, 102, 255, 1), 0 0 20px rgba(0, 102, 255, 0.8);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(0, 102, 255, 0.8), 0 0 10px rgba(0, 102, 255, 0.6);
+  }
+}
+
+.animate-glow {
+  animation: neon-glow 1.5s infinite alternate;
+}
+
+.slick-prev,
+.slick-next {
+  color: #333 !important; /* Warna panah default di light mode */
+  z-index: 50;
+}
+
+.dark .slick-prev,
+.dark .slick-next {
+  color: #fff !important; /* Warna panah untuk dark mode */
+}
+
+.slick-prev::before,
+.slick-next::before {
+  font-size: 24px !important; /* Ukuran panah lebih besar */
+  color: #333 !important; /* Warna panah lebih jelas */
+}
+
+.dark .slick-prev::before,
+.dark .slick-next::before {
+  color: #fff !important; /* Warna panah di dark mode */
+}
