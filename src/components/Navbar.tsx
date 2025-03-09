@@ -41,13 +41,13 @@ export default function Navbar() {
         <span className="text-gray-900 dark:text-white">Bank</span>
       </Link>
 
-      {/* Menu Desktop */}
+      {/* Desktop Menu */}
       <ul className="hidden md:flex space-x-6 text-sm font-medium">
         {[
-          { name: "Layanan", link: "/services" },
-          { name: "Simulasi Kredit", link: "/loan-simulation" },
-          { name: "Promo & Berita", link: "/news" },
-          { name: "Kontak", link: "/contact" },
+          { name: "Services", link: "/services" },
+          { name: "Loan Simulation", link: "/loan-simulation" },
+          { name: "Promos & News", link: "/news" },
+          { name: "Contact", link: "/contact" },
         ].map((item, index) => (
           <motion.li
             key={index}
@@ -61,7 +61,7 @@ export default function Navbar() {
             >
               {item.name}
             </Link>
-            {/* Efek Garis Hover */}
+            {/* Hover Line Effect */}
             <span
               className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 
             transition-all duration-300 group-hover:w-full"
@@ -70,9 +70,9 @@ export default function Navbar() {
         ))}
       </ul>
 
-      {/* Bagian Kanan: Dark Mode + Hamburger */}
+      {/* Right Section: Dark Mode + Hamburger */}
       <div className="flex items-center space-x-3">
-        {/* Tombol Dark Mode */}
+        {/* Dark Mode Button */}
         <button
           onClick={() => setDarkMode(!darkMode)}
           className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 transition 
@@ -85,7 +85,7 @@ export default function Navbar() {
           )}
         </button>
 
-        {/* Tombol Hamburger */}
+        {/* Hamburger Button */}
         <button
           className="md:hidden p-2 rounded-full bg-gray-200 dark:bg-gray-800 transition 
           hover:bg-blue-500 dark:hover:bg-blue-600"
@@ -99,7 +99,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Menu Mobile */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -112,10 +112,10 @@ export default function Navbar() {
             shadow-lg rounded-lg flex flex-col border border-neutral-300 dark:border-white/20"
           >
             {[
-              { name: "Layanan", link: "/services" },
-              { name: "Simulasi Kredit", link: "/loan-simulation" },
-              { name: "Promo & Berita", link: "/news" },
-              { name: "Kontak", link: "/contact" },
+              { name: "Services", link: "/services" },
+              { name: "Loan Simulation", link: "/loan-simulation" },
+              { name: "Promos & News", link: "/news" },
+              { name: "Contact", link: "/contact" },
             ].map((item, index) => (
               <Link
                 key={index}

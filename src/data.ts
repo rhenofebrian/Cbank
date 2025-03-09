@@ -144,3 +144,56 @@ export const teamMembers = [
     linkedin: "#",
   },
 ];
+
+// ../data.ts
+export const brandLogos = [
+  {
+    name: "Amazon",
+    image:
+      "https://amazon-blogs-brightspot-lower.s3.amazonaws.com/about/00/92/0260aab44ee8a2faeafde18ee1da/amazon-logo-inverse.svg",
+  },
+  {
+    name: "Shopee",
+    image:
+      "https://www.mendaftarkerja.com/wp-content/uploads/2024/09/IMG_2812.png",
+  },
+  {
+    name: "Tokopedia",
+    image: "https://www.julo.co.id/sites/default/files/2024-10/tokopedia.webp",
+  },
+  { name: "Lazada", image: "https://blog.alconost.com/hubfs/Lazada.svg" },
+  {
+    name: "Bukalapak",
+    image:
+      "https://hybrid.co.id/wp-content/uploads/2020/03/6d348add535c3c623309ebf5c1ee0c88_brand-architecture-bukalapak-primary@2x-1.png",
+  },
+  {
+    name: "Blibli",
+    image: "https://logowik.com/content/uploads/images/bliblicom1753.jpg",
+  },
+  {
+    name: "Zalora",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt26xkMirIuF1VVGPpU0lCWc7XwpVz3uvixQ&s",
+  },
+  {
+    name: "Traveloka",
+    image:
+      "https://interworks.com/wp-content/uploads/2023/02/Traveloka_Primary_Logo.webp",
+  },
+  {
+    name: "Gojek",
+    image:
+      "https://www.pranataprinting.com/wp-content/uploads/2021/05/Sejarah-Singkat-Perusahaan-Gojek-Dan-Perkembangannya.jpg",
+  },
+  {
+    name: "Grab",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsY2Mxbw-W5Fmx-ExXurEX-Z1_m4SjdN7Cgg&s",
+  },
+  {
+    name: "Tiket.com",
+    image:
+      "https://www.linkaja.id/uploads/images/YW50aWtvZGVfXzE2OTY2NzU4MThfbG9nby10aWtldC1jb20tcG5n.png",
+  },
+];

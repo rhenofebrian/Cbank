@@ -1,73 +1,73 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  ReactNode,
-  HTMLAttributes,
-} from "react";
+"use client";
 
-interface MagnetProps extends HTMLAttributes<HTMLDivElement> {
-  children: ReactNode;
-  padding?: number;
-  disabled?: boolean;
-  magnetStrength?: number;
+import type React from "react";
+import { useRef, useState, useEffect } from "react";
+
+interface MagneticProps {
+  children: React.ReactNode;
+  className?: string;
+  strength?: number;
 }
 
-const Magnet: React.FC<MagnetProps> = ({
+export const Magnetic: React.FC<MagneticProps> = ({
   children,
-  padding = 50,
-  disabled = false,
-  magnetStrength = 10,
-  ...props
+  className = "",
+  strength = 50,
 }) => {
+  const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const magnetRef = useRef<HTMLDivElement>(null);
+
+  const handleMouse = (e: MouseEvent) => {
+    if (!ref.current) return;
+
+    const { clientX, clientY } = e;
+    const { left, top, width, height } = ref.current.getBoundingClientRect();
+
+    const x = clientX - (left + width / 2);
+    const y = clientY - (top + height / 2);
+
+    const distance = Math.sqrt(x * x + y * y);
+    const maxDistance = 100;
+
+    if (distance < maxDistance) {
+      // Calculate strength based on distance (stronger when closer)
+      const strengthFactor = 1 - distance / maxDistance;
+      setPosition({
+        x: x * strengthFactor * (strength / 50),
+        y: y * strengthFactor * (strength / 50),
+      });
+    } else {
+      // Reset position when mouse is far away
+      setPosition({ x: 0, y: 0 });
+    }
+  };
+
+  const reset = () => {
+    setPosition({ x: 0, y: 0 });
+  };
 
   useEffect(() => {
-    if (disabled) {
-      setPosition({ x: 0, y: 0 });
-      return;
-    }
+    window.addEventListener("mousemove", handleMouse);
+    window.addEventListener("mouseleave", reset);
 
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!magnetRef.current) return;
-
-      const { left, top, width, height } =
-        magnetRef.current.getBoundingClientRect();
-      const centerX = left + width / 2;
-      const centerY = top + height / 2;
-
-      const distX = centerX - e.clientX;
-      const distY = centerY - e.clientY;
-
-      if (
-        Math.abs(distX) < width / 2 + padding &&
-        Math.abs(distY) < height / 2 + padding
-      ) {
-        const offsetX = -distX / magnetStrength;
-        const offsetY = -distY / magnetStrength;
-        setPosition({ x: offsetX, y: offsetY });
-      } else {
-        setPosition({ x: 0, y: 0 });
-      }
+    return () => {
+      window.removeEventListener("mousemove", handleMouse);
+      window.removeEventListener("mouseleave", reset);
     };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [padding, disabled, magnetStrength]);
+  }, []);
 
   return (
-    <div ref={magnetRef} className="inline-block relative" {...props}>
-      <div
-        style={{
-          transform: `translate(${position.x}px, ${position.y}px)`,
-          transition: "transform 0.2s ease-out",
-        }}
-      >
-        {children}
-      </div>
+    <div
+      ref={ref}
+      className={`magnetic-container ${className}`}
+      style={{
+        position: "relative",
+        display: "inline-block",
+        transform: `translate(${position.x}px, ${position.y}px)`,
+        transition: "transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+      }}
+    >
+      {children}
     </div>
   );
 };
-
-export default Magnet;
