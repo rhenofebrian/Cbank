@@ -5,34 +5,35 @@ import { newsData } from "../data";
 
 export default function NewsPage() {
   const [selectedCategory, setSelectedCategory] = useState<
-    "Semua" | "Promo" | "Berita"
-  >("Semua");
+    "All" | "Promo" | "News"
+  >("All");
 
   const filteredNews =
-    selectedCategory === "Semua"
+    selectedCategory === "All"
       ? newsData
       : newsData.filter((news) => news.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-black px-6 py-10 pt-24">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 px-6 py-10 pt-24">
       <div className="max-w-6xl mx-auto">
-        {/* Judul */}
+        {/* Title */}
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
+          style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}
           className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12"
         >
-          Promo & Berita
+          Promotions & News
         </motion.h1>
 
-        {/* Filter Kategori */}
+        {/* Category Filter */}
         <div className="flex justify-center space-x-4 mb-10">
-          {["Semua", "Promo", "Berita"].map((category) => (
+          {["All", "Promo", "News"].map((category) => (
             <motion.button
               key={category}
               onClick={() =>
-                setSelectedCategory(category as "Semua" | "Promo" | "Berita")
+                setSelectedCategory(category as "All" | "Promo" | "News")
               }
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -44,7 +45,7 @@ export default function NewsPage() {
             >
               <span className="relative z-10">{category}</span>
 
-              {/* Animasi Border Saat Hover */}
+              {/* Border Animation on Hover */}
               <motion.span
                 className="absolute inset-0 border-2 border-blue-500 opacity-0 rounded-lg"
                 initial={{ opacity: 0 }}
@@ -55,7 +56,7 @@ export default function NewsPage() {
           ))}
         </div>
 
-        {/* Daftar Berita */}
+        {/* News List */}
         <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           initial={{ opacity: 0 }}
@@ -78,7 +79,7 @@ export default function NewsPage() {
                   whileHover={{ scale: 1.02 }}
                   className="relative bg-white dark:bg-gray-900 shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col h-full"
                 >
-                  {/* Gambar dengan efek hover */}
+                  {/* Image with Hover Effect */}
                   <div className="relative overflow-hidden">
                     <motion.img
                       src={news.image}
@@ -88,7 +89,7 @@ export default function NewsPage() {
                     />
                   </div>
 
-                  {/* Konten Card */}
+                  {/* Card Content */}
                   <div className="p-6 flex flex-col flex-grow">
                     <p
                       className={`text-sm font-semibold uppercase tracking-wide ${
@@ -107,7 +108,7 @@ export default function NewsPage() {
                     </p>
                   </div>
 
-                  {/* Efek Overlay Hover */}
+                  {/* Hover Overlay Effect */}
                   <motion.div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
               </Link>

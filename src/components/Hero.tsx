@@ -9,7 +9,7 @@ import {
   Award,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { Magnetic } from "./Magnet";
+import { Magnetic } from "./effect/Magnet";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -81,7 +81,7 @@ function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="bg-blue-900 hover:bg-blue-800 text-white font-medium rounded-full px-6 md:px-8 py-2 md:py-2.5 shadow-lg"
+              className="bg-blue-900 hover:bg-blue-600 text-white font-medium rounded-full px-6 md:px-8 py-2 md:py-2.5 shadow-lg"
               onClick={() => navigate("/services")}
             >
               Join Now

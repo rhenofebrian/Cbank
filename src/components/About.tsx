@@ -1,48 +1,14 @@
-"use client";
-
 import { motion } from "framer-motion";
-import BlurText from "../components/BlurText";
-import IndonesiaMap from "../components/maps/Indonesia";
-import SingaporeMap from "../components/maps/Singapore";
-import DubaiMap from "../components/maps/Dubai";
+import BlurText from "../components/effect/BlurText";
+import { offices } from "../data";
 import { Building2, Users, CreditCard, Globe } from "lucide-react";
 
 export default function About() {
-  const offices = [
-    {
-      region: "Asia Pacific",
-      city: "Jakarta",
-      address: "Sudirman Central Business District, Tower 1",
-      services: ["Retail Banking", "Corporate Finance", "Investment"],
-      established: "2015",
-      coordinates: { x: "400", y: "200" },
-      mapComponent: IndonesiaMap,
-    },
-    {
-      region: "Southeast Asia",
-      city: "Singapore",
-      address: "Marina Bay Financial Centre, Tower 3",
-      services: ["Wealth Management", "Private Banking", "Trading"],
-      established: "2018",
-      coordinates: { x: "400", y: "200" },
-      mapComponent: SingaporeMap,
-    },
-    {
-      region: "Middle East",
-      city: "Dubai",
-      address: "Dubai International Financial Centre, Gate Village 8",
-      services: ["Islamic Banking", "International Finance", "Treasury"],
-      established: "2021",
-      coordinates: { x: "480", y: "160" },
-      mapComponent: DubaiMap,
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-white text-gray-900 dark:bg-black dark:text-white ">
+    <div className="min-h-screen bg-gray-100 text-gray-900 dark:bg-gray-950 dark:text-white ">
       <div className="container mx-auto px-4 py-16">
         {/* Hero Section */}
-        <div className="max-w-4xl mx-auto text-center mb-16 md:mb-24">
+        <div className="max-w-full mx-auto text-center mb-16 md:mb-24 px-4">
           <motion.h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 leading-tight"
             initial={{ opacity: 0 }}
@@ -50,11 +16,11 @@ export default function About() {
             transition={{ duration: 0.5 }}
           >
             <BlurText
-              text="Transforming banking through digital innovation across global markets"
+              text="Transforming banking through digital  innovation across global markets."
               delay={100}
               animateBy="letters"
               direction="top"
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+              className="font-cabinet text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-snug whitespace-nowrap"
             />
           </motion.h1>
           <motion.p

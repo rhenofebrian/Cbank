@@ -1,75 +1,10 @@
 import { useState, useRef } from "react";
 import { X, Instagram, Linkedin, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import ScrollVelocity from "./scroll-velocity";
-
-// Team member type definition
-type TeamMember = {
-  id: number;
-  name: string;
-  nim: string;
-  role: string;
-  email: string;
-  instagram: string;
-  linkedin: string;
-  image: string;
-  bio: string;
-  skills: string[];
-};
+import ScrollVelocity from "./effect/scroll-velocity";
+import { teamMembers } from "../data";
 
 export default function OurTeamSection() {
-  const teamMembers: TeamMember[] = [
-    {
-      id: 1,
-      name: "Asep Jamaludin",
-      nim: "101012330125",
-      role: "Frontend Developer ",
-      email: "asepjamaludinn24@gmail.com",
-      instagram: "https://www.instagram.com/_jmldnnn",
-      linkedin: "https://www.linkedin.com/in/asep-jamaludin-061565294/",
-      image: "/images/users/user1.JPG",
-      bio: "Frontend developer with expertise in React and modern JavaScript frameworks. Loves creating responsive and accessible web applications.",
-
-      skills: ["React", "JavaScript", "Tailwind CSS", "TypeScript"],
-    },
-    {
-      id: 2,
-      name: "Rheno Febrian",
-      nim: "2021010102",
-      role: "Backend Developer",
-      email: "rfebrianc@gmail.com",
-      instagram: "@rhenofbrn",
-      linkedin: "@rhenofbrn",
-      image: "https://source.unsplash.com/random/200x200?face=2",
-      bio: "Backend developer specializing in Node.js and database design. Passionate about building scalable and secure APIs.",
-      skills: ["Node.js", "Express", "MongoDB", "SQL"],
-    },
-    {
-      id: 3,
-      name: "Septia Retno",
-      nim: "101012330230",
-      role: "UI/UX Designer",
-      email: "septiaretno01@gmail.com",
-      instagram: "@septiaartn",
-      linkedin: "@septiaartn",
-      image: "https://source.unsplash.com/random/200x200?face=3",
-      bio: "Backend developer specializing in Node.js and database design. Passionate about building scalable and secure APIs.",
-      skills: ["Figma", "Adobe XD", "User Research", "Prototyping"],
-    },
-    {
-      id: 4,
-      name: "Hilmy Baihaqi",
-      nim: "101012340233",
-      role: "Project Manager",
-      email: "hilmybaihaqi08@gmail.com",
-      instagram: "@hilmybaihaqii_",
-      linkedin: "@hilmybaihaqii_",
-      image: "https://source.unsplash.com/random/200x200?face=4",
-      bio: "Experienced project manager with a track record of delivering successful tech projects. Skilled in agile methodologies and team leadership.",
-      skills: ["Agile", "Scrum", "JIRA", "Team Leadership"],
-    },
-  ];
-
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
   const containerRef = useRef(null);
   const [velocity, setVelocity] = useState(40);
@@ -137,13 +72,12 @@ export default function OurTeamSection() {
   };
 
   return (
-    <div className="w-full bg-white dark:bg-black ">
-      {/* ScrollVelocity component - full width */}
+    <div className="w-full bg-gray-100 dark:bg-gray-950 ">
       <div className="w-full overflow-hidden mb-16">
         <ScrollVelocity
           texts={[
-            "Meet Our Team • Talented Experts • Creative Minds • ",
-            "Innovative Solutions • Collaborative Work • Professional Skills • ",
+            "Trusted Financial Partner • Secure Transactions • Smart Banking Solutions • ",
+            "Easy Loans • Competitive Interest Rates • Reliable Investment Plans • ",
           ]}
           velocity={velocity}
           className="text-blue-500 dark:text-blue-400 px-4"
@@ -155,10 +89,17 @@ export default function OurTeamSection() {
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="relative z-10 flex flex-col items-center text-center">
           <motion.div
-            className="inline-block px-4 py-1 mb-4 text-sm font-medium bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full"
+            className="inline-block px-4 py-1 mb-4 text-sm font-medium 
+        bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 
+        rounded-full transition-all hover:bg-blue-200 dark:hover:bg-blue-800"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
+            whileHover={{
+              scale: 1.1,
+              boxShadow: "0px 4px 10px rgba(0, 0, 255, 0.2)",
+            }}
+            whileTap={{ scale: 0.95 }}
           >
             Our Team
           </motion.div>
@@ -168,6 +109,7 @@ export default function OurTeamSection() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
+            style={{ fontFamily: "Cabinet Grotesk" }}
           >
             Meet Our Experts
           </motion.h2>
@@ -240,8 +182,13 @@ export default function OurTeamSection() {
                       whileHover={{ scale: 1.2 }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      <Instagram size={16} />
+                      <Instagram
+                        size={16}
+                        strokeWidth={1.5}
+                        className="text-current"
+                      />
                     </motion.a>
+
                     <motion.a
                       href={`https://linkedin.com/in/${member.linkedin}`}
                       target="_blank"
@@ -281,7 +228,11 @@ export default function OurTeamSection() {
             >
               <motion.div
                 className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-md w-full overflow-hidden relative pointer-events-auto"
-                variants={modalVariants}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.8 },
+                  visible: { opacity: 1, scale: 1 },
+                  exit: { opacity: 0, scale: 0.8 },
+                }}
                 initial="hidden"
                 animate="visible"
                 exit="exit"
@@ -296,12 +247,13 @@ export default function OurTeamSection() {
                   <X size={20} />
                 </motion.button>
 
-                <div className="relative h-56 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-700 dark:to-indigo-700">
+                <div className="relative h-56 bg-white/10 dark:bg-black/30 backdrop-blur-lg">
                   <img
                     src={selectedMember.image || "/placeholder.svg"}
                     alt={selectedMember.name}
-                    className="w-full h-full object-cover mix-blend-overlay"
+                    className="w-full h-full object-cover rounded-t-xl shadow-lg"
                   />
+
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
                     <motion.h3
                       className="text-3xl font-bold text-white"
@@ -322,7 +274,7 @@ export default function OurTeamSection() {
                   </div>
                 </div>
 
-                <div className="p-6">
+                <div className="p-6 bg-white dark:bg-gray-900 rounded-lg shadow-lg">
                   <div className="mb-6">
                     <motion.p
                       className="text-gray-700 dark:text-gray-300 leading-relaxed"
@@ -345,12 +297,19 @@ export default function OurTeamSection() {
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {selectedMember.skills.map((skill, index) => (
-                        <span
+                        <motion.span
                           key={index}
-                          className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300 rounded-full text-sm"
+                          className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 
+        text-blue-600 dark:text-blue-300 rounded-full text-sm transition-all"
+                          whileHover={{
+                            scale: 1.1,
+                            boxShadow: "0px 4px 8px rgba(0, 0, 255, 0.2)",
+                            backgroundColor: "#bfdbfe",
+                          }}
+                          whileTap={{ scale: 0.95 }}
                         >
                           {skill}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
                   </motion.div>

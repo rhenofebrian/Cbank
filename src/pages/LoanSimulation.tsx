@@ -2,25 +2,25 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 export default function LoanSimulator() {
-  const [loanAmount, setLoanAmount] = useState<string>("10000000"); // Default 10 juta
-  const [interestRate, setInterestRate] = useState<number>(5); // Default 5% per tahun
-  const [tenor, setTenor] = useState<number>(12); // Default 12 bulan
+  const [loanAmount, setLoanAmount] = useState<string>("10000000"); // Default 10 million
+  const [interestRate, setInterestRate] = useState<number>(5); // Default 5% per year
+  const [tenor, setTenor] = useState<number>(12); // Default 12 months
   const [installment, setInstallment] = useState<number | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
-  // Fungsi untuk format angka ke Rupiah
+  // Function to format number to Rupiah
   const formatRupiah = (value: number) =>
     value.toLocaleString("id-ID", { style: "currency", currency: "IDR" });
 
-  // Fungsi untuk membersihkan input (hanya angka)
-  const cleanNumber = (value: string) => value.replace(/\D/g, ""); // Ambil hanya digit
+  // Function to clean input (only numbers)
+  const cleanNumber = (value: string) => value.replace(/\D/g, ""); // Extract only digits
 
-  // Fungsi menghitung cicilan per bulan
+  // Function to calculate monthly installment
   const calculateInstallment = () => {
     const cleanLoanAmount = Number(cleanNumber(loanAmount));
 
     if (cleanLoanAmount <= 0 || interestRate <= 0 || tenor <= 0) {
-      alert("Masukkan angka yang valid!");
+      alert("Please enter valid numbers!");
       return;
     }
 
@@ -37,18 +37,18 @@ export default function LoanSimulator() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-black px-4">
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-950 px-4">
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md w-full max-w-md overflow-hidden">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
-          Simulasi Kredit
+          Loan Simulator
         </h2>
 
         {/* Input Form */}
         <div className="space-y-4">
-          {/* Jumlah Pinjaman */}
+          {/* Loan Amount */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-              Jumlah Pinjaman (Rp)
+              Loan Amount (Rp)
             </label>
             <input
               type="text"
@@ -61,10 +61,10 @@ export default function LoanSimulator() {
             />
           </div>
 
-          {/* Suku Bunga */}
+          {/* Interest Rate */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-              Suku Bunga (% per tahun)
+              Interest Rate (% per year)
             </label>
             <input
               type="number"
@@ -78,7 +78,7 @@ export default function LoanSimulator() {
           {/* Tenor */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-              Tenor (bulan)
+              Tenor (months)
             </label>
             <input
               type="number"
@@ -89,16 +89,16 @@ export default function LoanSimulator() {
             />
           </div>
 
-          {/* Tombol Hitung */}
+          {/* Calculate Button */}
           <button
             onClick={calculateInstallment}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition flex justify-center"
           >
-            {loading ? "Menghitung..." : "Hitung Cicilan"}
+            {loading ? "Calculating..." : "Calculate Installment"}
           </button>
         </div>
 
-        {/* Hasil Perhitungan dengan Animasi */}
+        {/* Calculation Result with Animation */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={installment !== null ? { opacity: 1, scale: 1 } : {}}
@@ -108,7 +108,7 @@ export default function LoanSimulator() {
           {installment !== null && (
             <>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                Cicilan Per Bulan
+                Monthly Installment
               </h3>
               <p className="text-xl font-bold text-blue-600 dark:text-blue-400">
                 {formatRupiah(installment)}

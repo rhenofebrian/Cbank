@@ -18,8 +18,8 @@ export default {
         accent: "#93C5FD", // Biru pastel untuk aksen (Tailwind blue-300)
       },
       fontFamily: {
-        inter: ["Inter", "sans-serif"],
-        roboto: ["Roboto", "sans-serif"],
+        inter: ["Horticulture", "sans-serif"],
+        roboto: ["Cabinet Grotesk", "sans-serif"],
       },
     },
   },

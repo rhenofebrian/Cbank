@@ -53,7 +53,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
 
   // Pecah teks jadi <span> per huruf
   const splitText = children.split("").map((char, i) => (
-    <span key={i} className="letter inline-block">
+    <span key={i} className="letter inline">
       {char === " " ? "\u00A0" : char}
     </span>
   ));
