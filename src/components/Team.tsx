@@ -14,7 +14,7 @@ type TeamMember = {
   instagram: string;
   linkedin: string;
   bio: string;
-  skills: string[];
+  skills: Array<string>;
   image?: string;
 };
 
