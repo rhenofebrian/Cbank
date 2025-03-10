@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 export type TeamMember = {
-  id: number;
+  id: string;
   name: string;
   nim: string;
   role: string;

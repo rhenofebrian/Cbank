@@ -1,6 +1,11 @@
 import type React from "react";
 import { useRef, useEffect, useState } from "react";
-import { useSprings, animated, type SpringValue } from "@react-spring/web";
+import {
+  useSprings,
+  animated,
+  type SpringValue,
+  easings,
+} from "@react-spring/web";
 
 interface BlurTextProps {
   text?: string;
@@ -12,7 +17,7 @@ interface BlurTextProps {
   rootMargin?: string;
   animationFrom?: Record<string, any>;
   animationTo?: Record<string, any>[];
-  easing?: (t: number) => number | string;
+  easing?: (t: number) => number;
   onAnimationComplete?: () => void;
 }
 
@@ -26,13 +31,13 @@ const BlurText: React.FC<BlurTextProps> = ({
   rootMargin = "0px",
   animationFrom,
   animationTo,
-  easing = "easeOutCubic",
+  easing = easings.easeOutCubic,
   onAnimationComplete,
 }) => {
   const elements = animateBy === "words" ? text.split(" ") : text.split("");
   const [inView, setInView] = useState(false);
   const [isScrollingUp, setIsScrollingUp] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const scrollProgress = useRef(0);
   const ref = useRef<HTMLParagraphElement>(null);
   const animatedCount = useRef(0);
   const lastScrollY = useRef(0);
@@ -87,9 +92,8 @@ const BlurText: React.FC<BlurTextProps> = ({
 
       // Calculate scroll progress (0-100)
       const maxScroll = 300; // Maximum scroll distance to track
-      const progress =
+      scrollProgress.current =
         Math.min(Math.max(currentScrollY / maxScroll, 0), 1) * 100;
-      setScrollProgress(progress);
 
       // Determine scroll direction
       if (currentScrollY > lastScrollY.current) {
@@ -115,29 +119,29 @@ const BlurText: React.FC<BlurTextProps> = ({
         : i * (100 / elements.length);
 
       // Determine if this letter should be blurred based on scroll progress
-      const shouldBlur = isScrollingUp && scrollProgress > letterThreshold;
+      const shouldBlur =
+        isScrollingUp && scrollProgress.current > letterThreshold;
 
       // Base animation for initial appearance
       const baseAnimation = {
         from: animationFrom || defaultFrom,
-        to: inView
-          ? async (
-              next: (arg: Record<string, SpringValue<any>>) => Promise<void>
-            ) => {
-              for (const step of animationTo || defaultTo) {
-                await next(step);
-              }
-              animatedCount.current += 1;
-              if (
-                animatedCount.current === elements.length &&
-                onAnimationComplete
-              ) {
-                onAnimationComplete();
-              }
-            }
-          : animationFrom || defaultFrom,
+        to: async (
+          next: (arg: Record<string, SpringValue<any>>) => Promise<void>
+        ) => {
+          if (!inView) return;
+          for (const step of animationTo || defaultTo) {
+            await next(step);
+          }
+          animatedCount.current += 1;
+          if (
+            animatedCount.current === elements.length &&
+            onAnimationComplete
+          ) {
+            onAnimationComplete();
+          }
+        },
         delay: i * delay,
-        config: { easing: easing as any },
+        config: { easing },
       };
 
       // Sequential scroll-responsive behavior
