@@ -92,9 +92,9 @@ export default function Navbar() {
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? (
-            <FiX className="text-xl" />
+            <FiX className="text-xl text-black dark:text-white" />
           ) : (
-            <FiMenu className="text-xl" />
+            <FiMenu className="text-xl text-black dark:text-white" />
           )}
         </button>
       </div>

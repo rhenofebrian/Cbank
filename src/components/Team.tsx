@@ -56,10 +56,12 @@ export default function OurTeamSection() {
     <div className="w-full bg-gray-100 dark:bg-gray-950">
       <div className="w-full overflow-hidden mb-16">
         <ScrollVelocity
-          texts={[
-            "Trusted Financial Partner • Secure Transactions • Smart Banking Solutions • ",
-            "Easy Loans • Competitive Interest Rates • Reliable Investment Plans • ",
-          ]}
+          texts={
+            [
+              "Trusted Financial Partner • Secure Transactions • Smart Banking Solutions • ",
+              "Easy Loans • Competitive Interest Rates • Reliable Investment Plans • ",
+            ] as string[]
+          }
           velocity={velocity}
           className="text-blue-500 dark:text-blue-400 px-4"
           parallaxClassName="py-2 bg-gray-100 dark:bg-gray-950"
