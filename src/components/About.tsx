@@ -13,10 +13,10 @@ export default function About() {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 leading-tight"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.1 }}
           >
             <BlurText
-              text="Transforming banking through digital  innovation across global markets."
+              text="Transforming banking through digital  innovation across global markets"
               delay={100}
               animateBy="letters"
               direction="top"
