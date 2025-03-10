@@ -14,7 +14,7 @@ export default function Services() {
   const expertiseRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const bodyRef = useRef<HTMLElement | null>(null);
+  const bodyRef = useRef<HTMLElement>(document.body); // Inisialisasi dengan body secara default
 
   const [cardAnimationStarted, setCardAnimationStarted] = useState(false);
   const [cardAnimationComplete, setCardAnimationComplete] = useState(false);
@@ -26,12 +26,10 @@ export default function Services() {
   const [hasReachedStart, setHasReachedStart] = useState(true);
   const [manualScrolling, setManualScrolling] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [isTablet, setIsTablet] = useState(false);
   const [isScrollLocked, setIsScrollLocked] = useState(false);
   const [hasAnimatedOnce, setHasAnimatedOnce] = useState(false);
   const [isExpertiseSectionActive, setIsExpertiseSectionActive] =
     useState(false);
-
   // Animation controls for cards
   const firstCardControls = useAnimationControls();
   const secondCardControls = useAnimationControls();
@@ -696,7 +694,7 @@ export default function Services() {
     const handleResize = () => {
       const width = window.innerWidth;
       setIsMobile(width < 768);
-      setIsTablet(width >= 768 && width < 1024);
+      // setIsTablet(width >= 768 && width < 1024);
     };
 
     // Initial check

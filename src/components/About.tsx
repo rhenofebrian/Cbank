@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import BlurText from "../components/effect/BlurText";
 import { offices } from "../data";
 import { Building2, Users, CreditCard, Globe } from "lucide-react";
 
@@ -15,13 +14,13 @@ export default function About() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.1 }}
           >
-            <BlurText
+            {/* <BlurText
               text="Transforming banking through digital  innovation across global markets"
               delay={100}
               animateBy="letters"
               direction="top"
               className="font-cabinet text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-snug whitespace-nowrap"
-            />
+            /> */}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

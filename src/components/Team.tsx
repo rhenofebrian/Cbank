@@ -2,7 +2,7 @@ import type React from "react";
 import { useState } from "react";
 import { X, Instagram, Linkedin, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import ScrollVelocity from "./effect/scroll-velocity";
+// import ScrollVelocity from "./effect/scroll-velocity";
 import { teamMembers } from "../data";
 
 type TeamMember = {
@@ -20,7 +20,7 @@ type TeamMember = {
 
 export default function OurTeamSection() {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
-  const [velocity] = useState(40);
+  // const [velocity] = useState(40);
 
   // Animation variants
   const cardVariants = {
@@ -55,7 +55,7 @@ export default function OurTeamSection() {
   return (
     <div className="w-full bg-gray-100 dark:bg-gray-950">
       <div className="w-full overflow-hidden mb-16">
-        <ScrollVelocity
+        {/* <ScrollVelocity
           texts={
             [
               "Trusted Financial Partner • Secure Transactions • Smart Banking Solutions • ",
@@ -65,7 +65,7 @@ export default function OurTeamSection() {
           velocity={velocity}
           className="text-blue-500 dark:text-blue-400 px-4"
           parallaxClassName="py-2 bg-gray-100 dark:bg-gray-950"
-        />
+        /> */}
       </div>
 
       {/* Main content - constrained width */}

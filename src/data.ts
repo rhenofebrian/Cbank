@@ -170,7 +170,7 @@ export const offices = [
 
 export const teamMembers: TeamMember[] = [
   {
-    id: 1,
+    id: "1",
     name: "Asep Jamaludin",
     nim: "101012330125",
     role: "Frontend Developer",
@@ -182,7 +182,7 @@ export const teamMembers: TeamMember[] = [
     skills: ["React", "JavaScript", "Tailwind CSS", "TypeScript"],
   },
   {
-    id: 2,
+    id: "2",
     name: "Rheno Febrian",
     nim: "1301220188",
     role: "Backend Developer",
@@ -194,7 +194,7 @@ export const teamMembers: TeamMember[] = [
     skills: ["Node.js", "Express", "MongoDB", "SQL"],
   },
   {
-    id: 3,
+    id: "3",
     name: "Septia Retno",
     nim: "101012330230",
     role: "UI/UX Designer",
@@ -206,7 +206,7 @@ export const teamMembers: TeamMember[] = [
     skills: ["Figma", "Adobe XD", "User Research", "Prototyping"],
   },
   {
-    id: 4,
+    id: "4",
     name: "Hilmy Baihaqi",
     nim: "101012340233",
     role: "Project Manager",
