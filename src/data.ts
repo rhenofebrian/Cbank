@@ -50,6 +50,136 @@ export const promoData = [
     details: "Cashback otomatis masuk ke akun Anda.",
     url: "#", // Tambahkan URL sebagai placeholder
   },
+  {
+    id: "3",
+    title: "Cashback 30%",
+    date: "2024-03-11",
+    description: "Dapatkan cashback 30% untuk pembelian di atas Rp500.000!",
+    image: "https://via.placeholder.com/600x400",
+    category: "promo",
+    details: "Cashback otomatis masuk ke akun Anda.",
+    url: "#", // Tambahkan URL sebagai placeholder
+  },
+  {
+    id: "4",
+    title: "Cashback 30%",
+    date: "2024-03-11",
+    description: "Dapatkan cashback 30% untuk pembelian di atas Rp500.000!",
+    image: "https://via.placeholder.com/600x400",
+    category: "promo",
+    details: "Cashback otomatis masuk ke akun Anda.",
+    url: "#", // Tambahkan URL sebagai placeholder
+  },
+  {
+    id: "5",
+    title: "Cashback 30%",
+    date: "2024-03-11",
+    description: "Dapatkan cashback 30% untuk pembelian di atas Rp500.000!",
+    image: "https://via.placeholder.com/600x400",
+    category: "promo",
+    details: "Cashback otomatis masuk ke akun Anda.",
+    url: "#", // Tambahkan URL sebagai placeholder
+  },
+  {
+    id: "6",
+    title: "Cashback 30%",
+    date: "2024-03-11",
+    description: "Dapatkan cashback 30% untuk pembelian di atas Rp500.000!",
+    image: "https://via.placeholder.com/600x400",
+    category: "promo",
+    details: "Cashback otomatis masuk ke akun Anda.",
+    url: "#", // Tambahkan URL sebagai placeholder
+  },
+  {
+    id: "7",
+    title: "Cashback 30%",
+    date: "2024-03-11",
+    description: "Dapatkan cashback 30% untuk pembelian di atas Rp500.000!",
+    image: "https://via.placeholder.com/600x400",
+    category: "promo",
+    details: "Cashback otomatis masuk ke akun Anda.",
+    url: "#", // Tambahkan URL sebagai placeholder
+  },
+  {
+    id: "8",
+    title: "Cashback 30%",
+    date: "2024-03-11",
+    description: "Dapatkan cashback 30% untuk pembelian di atas Rp500.000!",
+    image: "https://via.placeholder.com/600x400",
+    category: "promo",
+    details: "Cashback otomatis masuk ke akun Anda.",
+    url: "#", // Tambahkan URL sebagai placeholder
+  },
+  {
+    id: "9",
+    title: "Cashback 30%",
+    date: "2024-03-11",
+    description: "Dapatkan cashback 30% untuk pembelian di atas Rp500.000!",
+    image: "https://via.placeholder.com/600x400",
+    category: "promo",
+    details: "Cashback otomatis masuk ke akun Anda.",
+    url: "#", // Tambahkan URL sebagai placeholder
+  },
+  {
+    id: "10",
+    title: "Cashback 30%",
+    date: "2024-03-11",
+    description: "Dapatkan cashback 30% untuk pembelian di atas Rp500.000!",
+    image: "https://via.placeholder.com/600x400",
+    category: "promo",
+    details: "Cashback otomatis masuk ke akun Anda.",
+    url: "#", // Tambahkan URL sebagai placeholder
+  },
+  {
+    id: "11",
+    title: "Cashback 30%",
+    date: "2024-03-11",
+    description: "Dapatkan cashback 30% untuk pembelian di atas Rp500.000!",
+    image: "https://via.placeholder.com/600x400",
+    category: "promo",
+    details: "Cashback otomatis masuk ke akun Anda.",
+    url: "#", // Tambahkan URL sebagai placeholder
+  },
+  {
+    id: "12",
+    title: "Cashback 30%",
+    date: "2024-03-11",
+    description: "Dapatkan cashback 30% untuk pembelian di atas Rp500.000!",
+    image: "https://via.placeholder.com/600x400",
+    category: "promo",
+    details: "Cashback otomatis masuk ke akun Anda.",
+    url: "#", // Tambahkan URL sebagai placeholder
+  },
+  {
+    id: "13",
+    title: "Cashback 30%",
+    date: "2024-03-11",
+    description: "Dapatkan cashback 30% untuk pembelian di atas Rp500.000!",
+    image: "https://via.placeholder.com/600x400",
+    category: "promo",
+    details: "Cashback otomatis masuk ke akun Anda.",
+    url: "#", // Tambahkan URL sebagai placeholder
+  },
+  {
+    id: "14",
+    title: "Cashback 30%",
+    date: "2024-03-11",
+    description: "Dapatkan cashback 30% untuk pembelian di atas Rp500.000!",
+    image: "https://via.placeholder.com/600x400",
+    category: "promo",
+    details: "Cashback otomatis masuk ke akun Anda.",
+    url: "#", // Tambahkan URL sebagai placeholder
+  },
+  {
+    id: "15",
+    title: "Cashback 30%",
+    date: "2024-03-11",
+    description: "Dapatkan cashback 30% untuk pembelian di atas Rp500.000!",
+    image: "https://via.placeholder.com/600x400",
+    category: "promo",
+    details: "Cashback otomatis masuk ke akun Anda.",
+    url: "#", // Tambahkan URL sebagai placeholder
+  },
 ];
 
 export const brandLogos = [

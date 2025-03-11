@@ -1,11 +1,10 @@
 import axios, { AxiosInstance } from "axios";
 
 export const axiosInstance: AxiosInstance = axios.create({
-  baseURL: `${import.meta.env.VITE_BASE_URL}?q=${import.meta.env.VITE_QUERY}`,
+  baseURL: import.meta.env.VITE_BASE_URL,
   headers: {
+    "User-Agent": "Mozilla/5.0",
+    "Accept-Encoding": "gzip, deflate",
     "Content-Type": "application/json",
-  },
-  params: {
-    apiKey: import.meta.env.VITE_API_KEY,
   },
 });

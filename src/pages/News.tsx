@@ -27,11 +27,16 @@ export default function NewsPage() {
   const itemsPerPagePromos = 6;
 
   useEffect(() => {
-    const fetchNews = async () => {
+    const fetchNews = async (query: string = import.meta.env.VITE_QUERY) => {
       setLoading(true);
       try {
         if (selectedCategory === "news") {
-          const response = await axiosInstance.get("");
+          const response = await axiosInstance.get("/", {
+            params: {
+              q: query,
+              apiKey: import.meta.env.VITE_API_KEY,
+            },
+          });
           const articles = response.data.articles.map(
             (article: NewsItem, index: number) => ({
               id: index.toString(),
