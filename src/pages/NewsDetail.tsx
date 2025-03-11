@@ -1,11 +1,11 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { newsData } from "../data";
+import { promoData } from "../data";
 import { ArrowLeft } from "lucide-react";
 
 export default function NewsDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate(); // Gunakan useNavigate untuk kembali ke halaman sebelumnya
-  const newsItem = newsData.find((news) => news.id === Number(id));
+  const newsItem = promoData.find((news) => Number(news.id) === Number(id));
 
   if (!newsItem) {
     return (

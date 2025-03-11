@@ -29,61 +29,26 @@ export type FAQItem = {
   question: string;
   answer: string;
 };
-export const newsData = [
+export const promoData = [
   {
-    id: 1,
-    title: "Special 0% Interest Promotion for Car Loans",
-    date: "2025-03-07",
-    description:
-      "Enjoy 0% interest on car loans until the end of this month. Terms & conditions apply.",
-    image: "/images/promo-mobil.jpeg",
-    category: "Promo",
-    details: `
-      This 0% interest program applies to specific car purchases with a loan term of up to 3 years.  
-      **How to get this promotion:**  
-      1. Apply for a car loan through the CBank app or at the nearest branch.  
-      2. Choose a car that is included in the promo program.  
-      3. Make a down payment according to the terms.  
-      4. Enjoy 0% interest for the specified loan term.  
-      
-      *This promo is valid until the end of the month and is limited to the first customers who apply!*
-    `,
+    id: "1",
+    title: "Promo Diskon 50%",
+    date: "2024-03-10",
+    description: "Nikmati diskon hingga 50% untuk produk tertentu!",
+    image: "https://via.placeholder.com/600x400",
+    category: "promo",
+    details: "Promo berlaku hingga akhir bulan.",
+    url: "#", // Tambahkan URL sebagai placeholder
   },
   {
-    id: 2,
-    title: "CBank Wins Best Digital Bank Award",
-    date: "2025-03-05",
-    description:
-      "CBank has been awarded as the Best Digital Bank at the 2025 FinTech Awards.",
-    image: "/images/bank-award.jpeg",
-    category: "News",
-    details: `
-      CBank has been named **Best Digital Bank 2025** at the FinTech Awards for its outstanding digital banking innovations.  
-      **Key factors behind CBank's victory:**  
-      - AI-based banking security system.  
-      - Fully-featured branchless banking services.  
-      - Real-time transaction speed across all services.  
-      
-      *CBank continues to innovate to provide the best banking experience in the digital era!*
-    `,
-  },
-  {
-    id: 3,
-    title: "50% Discount on Credit Card Transactions at Restaurants",
-    date: "2025-03-01",
-    description:
-      "Get up to 50% off when dining at select restaurants with your CBank credit card.",
-    image: "/images/diskon-resto.jpg",
-    category: "Promo",
-    details: `
-      This promotion is available for CBank credit card holders dining at partner restaurants throughout March 2025.  
-      **How to get the discount:**  
-      1. Use your CBank credit card when paying at participating restaurants.  
-      2. The 50% discount is automatically applied at checkout.  
-      3. The promo is only valid for transactions of at least Rp 200,000.  
-      
-      *Enjoy great meals at a lower price with CBank!*
-    `,
+    id: "2",
+    title: "Cashback 30%",
+    date: "2024-03-11",
+    description: "Dapatkan cashback 30% untuk pembelian di atas Rp500.000!",
+    image: "https://via.placeholder.com/600x400",
+    category: "promo",
+    details: "Cashback otomatis masuk ke akun Anda.",
+    url: "#", // Tambahkan URL sebagai placeholder
   },
 ];
 
