@@ -27,16 +27,14 @@ export default function NewsPage() {
   const itemsPerPagePromos = 6;
 
   useEffect(() => {
-    const fetchNews = async (query: string = import.meta.env.VITE_QUERY) => {
+    const fetchNews = async () => {
       setLoading(true);
       try {
         if (selectedCategory === "news") {
-          const response = await axiosInstance.get("/", {
-            params: {
-              q: query,
-              apiKey: import.meta.env.VITE_API_KEY,
-            },
-          });
+          const apiKey = import.meta.env.VITE_API_KEY;
+          const response = await axiosInstance.get(
+            `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`
+          );
           const articles = response.data.articles.map(
             (article: NewsItem, index: number) => ({
               id: index.toString(),
